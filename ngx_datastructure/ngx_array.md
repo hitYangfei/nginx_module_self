@@ -12,10 +12,10 @@ struct ngx_array_s {
 所谓数组就是一串连续的内存单元就是ngx_array_t中的elts，这是一个连续的内存单元。
 主要看一下ngx_array_init以及ngx_array_push方法
 
-###ngx_array_init
+### ngx_array_init
 ngx通过方法ngx_array_init创建一个动态数组
 
-###ngx_array_push
+### ngx_array_push
 ngx通过方法ngx_array_push向动态数组中添加一个元素,代码如下
 ```
 void *
