@@ -11,9 +11,11 @@ struct ngx_array_s {
 ```
 所谓数组就是一串连续的内存单元就是ngx_array_t中的elts，这是一个连续的内存单元。
 主要看一下ngx_array_init以及ngx_array_push方法
-##ngx_array_init
+
+###ngx_array_init
 ngx通过方法ngx_array_init创建一个动态数组
-##ngx_array_push
+
+###ngx_array_push
 ngx通过方法ngx_array_push向动态数组中添加一个元素,代码如下
 ```
 void *
@@ -66,6 +68,7 @@ ngx_array_push(ngx_array_t *a)
 可以看到当ngx的动态数组容量不足的时候，ngx以原数组的容量*2位新容量进行扩充(JAVA sdk也采用这个策略)。
 上面的数组扩展过程有一个优化的小地方挺有意思。ngx有自己的内存池，在使用内存池的时候为了效率，ngx会故意的留一下尾部碎步。这里的优化也是针对碎片的优化。
 >若果一块内存刚好分配在了一块内存池的尾部，并且尾部有足够的内存，那么动态数组扩展一个元素。
+
 PS:ngx这种小的优化特别多，指的学习
 
 
