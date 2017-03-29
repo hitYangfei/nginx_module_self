@@ -213,4 +213,4 @@ found:
 ```
 
 ngx_hash的内存结构图如下：
-![ngx_hash结构图](/imgs/ngx_hash.png "ngx_hash结构图")
+![ngx_hash结构图](./imgs/ngx_hash.png "ngx_hash结构图")
