@@ -202,8 +202,8 @@ elt = (ngx_hash_elt_t *) ngx_align_ptr(&elt->name[0] + elt->len,sizeof(void *));
 为什么上一个elt->name[0]便宜elt->len就可以找到下一个ngx_hahs_elt_t呢。可以仔细看一下ngx_hash的结构图。因为ngx_hash在发生碰撞的时候，会将元素直接放到上一个元素后面。所以偏移len后再内存中刚好走到下一个元素。如果下一个元素的value是NULL则说明是bucket中的最后一个元素。
 
 ### ngx通配hash表
-nginx支持两种通配符，一种是前缀一种是后缀,即www.test.*或者*.www.test。
-这两种的处理方法几乎一样，*.www.test可以假设是test.www.*,在匹配的时候我们从后往前进行点分单词匹配就可以。
+nginx支持两种通配符，一种是前缀一种是后缀,即www.test.**或者**.www.test。
+这两种的处理方法几乎一样，**.www.test可以假设是test.www.**,在匹配的时候我们从后往前进行点分单词匹配就可以。
 ngx对于统配的支持在于对哈希表元素ngx_hahs_elt_t中value值的各种变化来实现,在一个统配的哈希表中ngx_hahs_elt_t中的valu可能是
 1. 指向一个真正的value内容
 2. 指向一个下层的ngx_hash_wildcard_t哈希表
